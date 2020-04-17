@@ -38,13 +38,21 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] Explain the difference between `Relational Databases` and `SQL`.
+- [✔] Explain the difference between `Relational Databases` and `SQL`.
 
-- [ ] Why do tables need a `primary key`?
+    SQL is a query language for searching through and showing data from a relational database that stores data in tables.
 
-- [ ] What is the name given to a table column that references the primary key on another table.
+- [✔] Why do tables need a `primary key`?
 
-- [ ] What do we need in order to have a _many to many_ relationship between two tables.
+    Primary Keys create unique identifiers that will remain the same regardless of changes or similarities in other data.
+
+- [✔] What is the name given to a table column that references the primary key on another table.
+
+    Foreign Key
+
+- [✔] What do we need in order to have a _many to many_ relationship between two tables.
+
+    You organize a Many to Many relationship by having an intermediate table with multiple foreign keys and then performing a join on that table. 
 
 ## Minimum Viable Product
 
@@ -52,53 +60,53 @@ Take the steps necessary to complete the project from scratch. Start by initiali
 
 Complete the following tasks:
 
-- [ ] Design the data model and use _knex migrations_ to create the database and tables needed to satisfy the following business rules:
-  - [ ] a `project` can have multiple `tasks`.
-  - [ ] a `task` belongs to only one `project`.
-  - [ ] a `project` can use multiple `resources`. Example of `resources` are: computer, conference room, microphone, delivery van.
-  - [ ] the same `resource` can be used in multiple `projects`.
-  - [ ] when adding `projects` the client must provide a name, the description is optional.
-  - [ ] when adding `resources` the client must provide a name, the description is optional.
-  - [ ] when adding a `task` the client must provide a description, the notes are optional.
-  - [ ] when adding a `task` the client must provide the `id` of an existing project.
-  - [ ] for `projects` and `tasks` if no value is provided for the `completed` property, the API should provide a default value of `false`.
-- [ ] Build an API with endpoints for:
-  - [ ] adding resources.
-  - [ ] retrieving a list of resources.
-  - [ ] adding projects.
-  - [ ] retrieving a list of projects.
-  - [ ] adding tasks.
-  - [ ] retrieving a list of tasks. **The list of tasks should include the project name and project description**.
+- [✔] Design the data model and use _knex migrations_ to create the database and tables needed to satisfy the following business rules:
+  - [✔] a `project` can have multiple `tasks`.
+  - [✔] a `task` belongs to only one `project`.
+  - [✔] a `project` can use multiple `resources`. Example of `resources` are: computer, conference room, microphone, delivery van.
+  - [✔] the same `resource` can be used in multiple `projects`.
+  - [✔] when adding `projects` the client must provide a name, the description is optional.
+  - [✔] when adding `resources` the client must provide a name, the description is optional.
+  - [✔] when adding a `task` the client must provide a description, the notes are optional.
+  - [✔] when adding a `task` the client must provide the `id` of an existing project.
+  - [✔] for `projects` and `tasks` if no value is provided for the `completed` property, the API should provide a default value of `false`.
+- [✔] Build an API with endpoints for:
+  - [✔] adding resources.
+  - [✔] retrieving a list of resources.
+  - [✔] adding projects.
+  - [✔] retrieving a list of projects.
+  - [✔] adding tasks.
+  - [✔] retrieving a list of tasks. **The list of tasks should include the project name and project description**.
 
 ### Entities
 
 A `project` is what needs to be done. We want to store the following data about a `project`:
 
-- [ ] a unique ID.
-- [ ] a name. This column is required.
-- [ ] a description.
-- [ ] a boolean that indicates if the project has been completed. This column cannot be NULL, the default value should be `false`.
+- [✔] a unique ID.
+- [✔] a name. This column is required.
+- [✔] a description.
+- [✔] a boolean that indicates if the project has been completed. This column cannot be NULL, the default value should be `false`.
 
 A `resource` is anything needed to complete a project, some examples are: a person, a tool, a meeting room or a software license. We want to store the following data about a `resource`:
 
-- [ ] a unique ID.
-- [ ] a name. This column is required.
-- [ ] a description.
+- [✔] a unique ID.
+- [✔] a name. This column is required.
+- [✔] a description.
 
 The database should not allow resources with duplicate names.
 
 A `task` one of the steps needed to complete the project. We want to store the following data about an `task`.
 
-- [ ] a unique ID.
-- [ ] a description of what needs to be done. This column is required.
-- [ ] a notes column to add additional information.
-- [ ] a boolean that indicates if the task has been completed. This column cannot be NULL, the default value should be `false`.
+- [✔] a unique ID.
+- [✔] a description of what needs to be done. This column is required.
+- [✔] a notes column to add additional information.
+- [✔] a boolean that indicates if the task has been completed. This column cannot be NULL, the default value should be `false`.
 
 ## Stretch Problem
 
 This section is **optional** and not counted towards MVP. Start working on it after you're done with the main assignment.
 
-Add an endpoint for retrieving a `project` by its `id` that returns an object with the following structure:
+*completed* Add an endpoint for retrieving a `project` by its `id` that returns an object with the following structure:
 
 ```js
 {
@@ -137,7 +145,7 @@ Add an endpoint for retrieving a `project` by its `id` that returns an object wi
 
 Add the remaining CRUD operations for projects and tasks.
 
-Use `knex` to add _data seeding_ scripts for projects and tasks.
+ *completed* Use `knex` to add _data seeding_ scripts for projects and tasks.
 
 Add support for the concept of `contexts`. A context is something like _at home_, _at work_ or _at computer_. The idea is that some tasks require one or more `contexts` in order to be worked on. For example, the task of _file income taxes_ may require that you are _at home_, _at computer_ and _online_ so if you are _at work_ and look at the list of pending tasks you could do in your current context, filing your taxes will not be one of them.
 
