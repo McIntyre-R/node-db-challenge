@@ -39,7 +39,7 @@ server.get('/resources', (req, res) => {
     projects.getResources()
     .then(resources => {
       
-        res.status(200).json({ data: resources})
+        res.status(200).json({ resources})
     })
     .catch(err => {
         console.log(err)
@@ -63,7 +63,7 @@ server.get('/tasks', (req, res) => {
         tasks.map( e => {
             e.completed? e.completed = true : e.completed = false
         })
-        res.status(200).json({ data: tasks})
+        res.status(200).json({ tasks})
     })
     .catch(err => {
         console.log(err)
